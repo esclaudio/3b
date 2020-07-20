@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>3B</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5d0f9de8b2.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.4.1/dist/alpine.min.js" defer></script>
+</head>
+<body class="bg-gray-200 font-sans flex flex-col min-h-screen">
+    <div class="flex-1 mx-auto flex flex-col justify-center" x-data="bbb()">
+        <div class="flex items-center m-6">
+            <input id="bueno" type="checkbox" @click="handle">
+            <label for="bueno"></label>
+            <div class="ml-5 text-gray-700 font-medium text-4xl">BUENO</div>
+        </div>
+
+        <div class="flex items-center m-6">
+            <input id="bonito" type="checkbox" @click="handle">
+            <label for="bonito"></label>
+            <div class="ml-5 text-gray-700 font-medium text-4xl">BONITO</div>
+        </div>
+
+        <div class="flex items-center m-6">
+            <input id="barato" type="checkbox" @click="handle">
+            <label for="barato"></label>
+            <div class="ml-5 text-gray-700 font-medium text-4xl">BARATO</div>
+        </div>
+    </div>
+    <footer class="w-full flex flex-col-reverse items-center md:flex-row md:items-end md:justify-between p-6 text-gray-600 text-sm">
+        <div>
+            Por
+            <a href="https://github.com/esclaudio/" target="_blank" title="@esclaudio on Github" class="text-purple-700">@esclaudio</a>,
+            inspirado por
+            <a href="https://fastgood.cheap" target="_blank" class="text-purple-700">fastgood.cheap</a>
+        </div>
+        <div class="text-4xl">
+            <a id="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://fastgood.cheap&amp;title=Fast Good Cheap" target="_blank" class="mr-2">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a id="twitter" href="https://twitter.com/intent/tweet?url=http%3A%2F%2Ffastgood.cheap&amp;text=Fast Good Cheap" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </footer>
+    <script>
+        function bbb() {
+            return {
+                checked: [],
+                handle(e) {
+                    if (e.target.checked && this.checked.length === 2) {
+                        this.checked[this.checked.length - 1].checked = false;
+                    }
+                    this.checked = document.querySelectorAll('input[type="checkbox"]:checked');
+                },
+            }
+        }
+    </script>
+</body>
+</html>
