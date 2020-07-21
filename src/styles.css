@@ -3,35 +3,35 @@
 @tailwind utilities;
 
 input[type=checkbox] {
-    height: 0;
-    width: 0;
-    visibility: hidden;
+  height: 0;
+  width: 0;
+  visibility: hidden;
 }
 
 label {
-    @apply relative block w-20 h-8 rounded-full bg-gray-500 cursor-pointer;
+  @apply relative block w-20 h-8 rounded-full bg-gray-500 cursor-pointer;
 }
 
 label:after {
-    @apply absolute bg-gray-300 w-10 h-10 rounded-full shadow;
+  @apply absolute bg-gray-300 w-10 h-10 rounded-full shadow;
 
-    content: '';
-    top: -0.25rem;
-    left: -0.25rem;
-    transition: 0.3s;
+  content: '';
+  top: -0.25rem;
+  left: -0.25rem;
+  transition: 0.3s;
 }
 
 input:checked + label {
-    @apply bg-green-400;
+  @apply bg-green-400;
 }
 
 input:checked + label:after {
-    @apply bg-green-600;
+  @apply bg-green-600;
 
-    left: calc(100%);
-    transform: translateX(-100%);
+  left: calc(100%);
+  transform: translateX(-100%);
 }
 
 label:active:after {
-    @apply w-12;
+  @apply w-12;
 }
